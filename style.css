@@ -1018,12 +1018,32 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 8px;
+    padding: 16px;
+  }
+  .lexicon-sidebar h4 {
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  .game-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --header-height: 70px;
+    --header-height: auto;
+  }
+  header {
+    height: auto;
+    padding: 10px 0;
+  }
+  .nav-container {
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+    padding: 0 16px;
   }
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1060,7 +1080,23 @@ footer {
     padding: 24px;
   }
   .nav-menu {
-    display: none; /* simple mobile fallback: hide navbar menu or we could build burger, let's keep it simple for now */
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    padding: 4px;
+    border-radius: var(--radius-pill);
+    gap: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 0.78rem;
+    white-space: nowrap;
   }
 }
 
