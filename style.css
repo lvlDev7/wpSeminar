@@ -1221,6 +1221,8 @@ footer {
   padding: 20px;
   position: relative;
   overflow-x: auto;
+  min-width: 0; /* Crucial CSS Grid fix to prevent content from stretching the container */
+  width: 100%;
 }
 
 .schematic-canvas {
