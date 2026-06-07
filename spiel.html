@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mitarbeiter Schulungsportal – Schulungs-Spiel</title>
+  <meta name="description" content="Interaktives Hydraulikschema-Spiel für Azubis. Lerne die fehlerfreie Platzierung aller Wärmepumpen-Komponenten und verstehe die logischen Zusammenhänge.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background decorative blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- Header Section -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+        <span>Wärmepumpen<span class="text-primary">TEAM</span></span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Schulung & Check</a></li>
+          <li><a href="aufbau.html" class="nav-link">Heizstation-Aufbau</a></li>
+          <li><a href="spiel.html" class="nav-link active">Schulungs-Spiel</a></li>
+          <li><a href="komponenten.html" class="nav-link">Komponenten-Lexikon</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main>
+    <section class="section">
+      <div class="section-header">
+        <span class="badge">Interaktives Training</span>
+        <h2>Hydraulisches Schema-Planungsspiel</h2>
+        <p>
+          Verstehe das Hydraulikschema! Ziehe die Baugruppen aus der Werkzeugkiste auf ihre korrekten Positionen im Rohrnetz. Teste danach das System über die Inbetriebnahme-Simulation.
+        </p>
+      </div>
+
+      <!-- Game Layout -->
+      <div class="game-layout">
+        
+        <!-- Sidebar Controls & Info -->
+        <aside class="game-sidebar">
+          <div>
+            <h3 class="game-title">Werkzeugkiste</h3>
+            <p class="game-desc">Klicke auf ein Bauteil und wähle dann den passenden Platzhalter (?) im Hydraulikschema aus.</p>
+          </div>
+
+          <!-- Toolbox of Components (with actual product images) -->
+          <div class="toolbox-container" id="game-toolbox">
+            <h5>Verfügbare Bauteile</h5>
+            
+            <div class="toolbox-item" data-component="ww-speicher">
+              <img src="Warmwasserspeicher.jpg" class="toolbox-thumb" alt="Warmwasserspeicher">
+              <div class="toolbox-label-wrap">
+                <span class="toolbox-name">Warmwasserspeicher</span>
+                <span class="toolbox-type">Standgerät (Brauchwasser)</span>
+              </div>
+            </div>
+
+            <div class="toolbox-item" data-component="pufferspeicher">
+              <img src="Pufferspeicher.jpg" class="toolbox-thumb" alt="Pufferspeicher">
+              <div class="toolbox-label-wrap">
+                <span class="toolbox-name">Pufferspeicher</span>
+                <span class="toolbox-type">Standgerät (Heizwasser)</span>
+              </div>
+            </div>
+
+            <div class="toolbox-item" data-component="hydroeinheit">
+              <img src="Hydroeineit.webp" class="toolbox-thumb" alt="Hydroeinheit">
+              <div class="toolbox-label-wrap">
+                <span class="toolbox-name">Hydroeinheit</span>
+                <span class="toolbox-type">Wandgerät (Zentrale)</span>
+              </div>
+            </div>
+
+            <div class="toolbox-item" data-component="schlammabscheider">
+              <img src="Magnetit und Schlammabscheider.jpg" class="toolbox-thumb" alt="Schlammabscheider">
+              <div class="toolbox-label-wrap">
+                <span class="toolbox-name">Schlammabscheider</span>
+                <span class="toolbox-type">Sicherheitsarmatur (Hydraulik)</span>
+              </div>
+            </div>
+
+            <div class="toolbox-item" data-component="mag">
+              <img src="MAG.jpg" class="toolbox-thumb" alt="MAG">
+              <div class="toolbox-label-wrap">
+                <span class="toolbox-name">Ausdehnungsgefäß</span>
+                <span class="toolbox-type">Wandgerät (MAG)</span>
+              </div>
+            </div>
+
+            <div class="toolbox-item" data-component="kesselsicherheitsgruppe">
+              <img src="Kesselsicherheitsgruppe.jpg" class="toolbox-thumb" alt="Kesselsicherheitsgruppe">
+              <div class="toolbox-label-wrap">
+                <span class="toolbox-name">Sicherheitsgruppe</span>
+                <span class="toolbox-type">Armaturengruppe (Vorlauf)</span>
+              </div>
+            </div>
+
+            <div class="toolbox-item" data-component="sicherheitsgruppe-kaltwasser">
+              <img src="Sicherheitsgruppe Kaltwasser.jpg" class="toolbox-thumb" alt="Sicherheitsgruppe Kaltwasser">
+              <div class="toolbox-label-wrap">
+                <span class="toolbox-name">Sicherheitsgruppe Trinkwasser</span>
+                <span class="toolbox-type">Sicherheitsarmatur (Kaltwasser)</span>
+              </div>
+            </div>
+
+            <div class="toolbox-item" data-component="frostschutzventil">
+              <img src="Frostschutzventil.jpg" class="toolbox-thumb" alt="Frostschutzventil">
+              <div class="toolbox-label-wrap">
+                <span class="toolbox-name">Frostschutzventil</span>
+                <span class="toolbox-type">Sicherheitsarmatur (Außen)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+            <button class="btn btn-primary" id="game-simulate-btn" style="width: 100%; justify-content: center; font-weight: 700;">Inbetriebnahme simulieren!</button>
+            <button class="btn btn-secondary" id="game-clear-btn" style="width: 100%; justify-content: center;">Schema leeren</button>
+          </div>
+        </aside>
+
+        <!-- The Schematic Board Drawing Canvas -->
+        <div class="schematic-board">
+          <div class="schematic-canvas" id="schematic-canvas">
+            
+            <!-- Outside vs Inside labels -->
+            <div class="partition-wall"></div>
+            <div class="partition-label" style="left: 45px;">Außenbereich</div>
+            <div class="partition-label" style="left: 235px;">Innenbereich (Heizungskeller)</div>
+
+             <!-- Visual elements -->
+            <div class="room-graphic mono" style="left: 30px; top: 200px; width: 110px; height: 130px;">Monoblock<br>(Außengerät)</div>
+            <div class="room-graphic pumpengruppe" style="left: 450px; top: 200px; width: 90px; height: 60px;">Pumpengruppe<br>(Heizkreis)</div>
+            <div class="room-graphic heizkreis" style="left: 580px; top: 70px; width: 130px; height: 60px;">Haus-Heizkreis<br>(Radiatoren / FBH)</div>
+            <div class="room-graphic warmwasser" style="left: 770px; top: 180px; width: 110px; height: 60px;">Warmwasser-Netz<br>(Hausleitung)</div>
+            <div class="room-graphic kaltwasser" style="left: 770px; top: 400px; width: 110px; height: 60px;">Kaltwasser-Zulauf<br>(Stadtnetz)</div>
+
+            <!-- SVG pipelines (Red/Blue/Cyan/Orange paths) -->
+            <svg class="pipe-svg" viewBox="0 0 920 520">
+              <!-- Background shadow to make pipes look 3D -->
+              <path class="pipe-line background-shadow" d="M 130 234 L 250 234" />
+              <path class="pipe-line background-shadow" d="M 250 254 L 220 254 L 220 314 L 130 314" />
+              <path class="pipe-line background-shadow" d="M 270 215 L 270 140 L 468 140 L 468 340" />
+              <path class="pipe-line background-shadow" d="M 468 390 L 280 390 L 280 274" />
+              <path class="pipe-line background-shadow" d="M 532 340 L 532 200" />
+              <path class="pipe-line background-shadow" d="M 532 200 L 532 160 L 645 160 L 645 130" />
+              <path class="pipe-line background-shadow" d="M 645 130 L 645 180 L 550 180 L 550 200" />
+              <path class="pipe-line background-shadow" d="M 550 200 L 550 390 L 532 390" />
+              <path class="pipe-line background-shadow" d="M 290 215 L 290 90 L 680 90 L 680 305" />
+              <path class="pipe-line background-shadow" d="M 660 405 L 660 445 L 300 445 L 300 274" />
+              <path class="pipe-line background-shadow" d="M 390 390 L 390 274" />
+              <path class="pipe-line background-shadow" d="M 770 430 L 850 430 L 850 260 L 750 260 L 750 405 L 712 405" />
+              <path class="pipe-line background-shadow" d="M 700 305 L 700 210 L 770 210" />
+              
+              <!-- Active Flow pipelines -->
+              <!-- 1. Monoblock Vorlauf (Red) -->
+              <path id="pipe-mono-vorlauf" class="pipe-line pipe-vorlauf" d="M 130 234 L 250 234" />
+              
+              <!-- 2. Monoblock Rücklauf (Blue) -->
+              <path id="pipe-mono-ruecklauf" class="pipe-line pipe-ruecklauf" d="M 250 254 L 220 254 L 220 314 L 130 314" />
+              
+              <!-- 3. Hydroeinheit -> Puffer Vorlauf links (Red) -->
+              <path id="pipe-hydro-puffer-vorlauf" class="pipe-line pipe-vorlauf" d="M 270 215 L 270 140 L 468 140 L 468 340" />
+              
+              <!-- 4. Puffer Rücklauf links -> Hydroeinheit (Blue) -->
+              <path id="pipe-puffer-hydro-ruecklauf" class="pipe-line pipe-ruecklauf" d="M 468 390 L 280 390 L 280 274" />
+              
+              <!-- 5. Puffer Vorlauf rechts -> Pumpengruppe (Red) -->
+              <path id="pipe-puffer-pump-vorlauf" class="pipe-line pipe-vorlauf" d="M 532 340 L 532 200" />
+ 
+              <!-- 6. Pumpengruppe -> Heizkreis Vorlauf (Red) -->
+              <path id="pipe-pump-heizkreis-vorlauf" class="pipe-line pipe-vorlauf" d="M 532 200 L 532 160 L 645 160 L 645 130" />
+ 
+              <!-- 7. Heizkreis -> Pumpengruppe Rücklauf (Blue) -->
+              <path id="pipe-heizkreis-pump-ruecklauf" class="pipe-line pipe-ruecklauf" d="M 645 130 L 645 180 L 550 180 L 550 200" />
+ 
+              <!-- 8. Pumpengruppe -> Puffer Rücklauf rechts (Blue) -->
+              <path id="pipe-pump-puffer-ruecklauf" class="pipe-line pipe-ruecklauf" d="M 550 200 L 550 390 L 532 390" />
+ 
+              <!-- 9. Hydroeinheit -> Warmwasserspeicher Vorlauf (Red) -->
+              <path id="pipe-hydro-ww-vorlauf" class="pipe-line pipe-vorlauf" d="M 290 215 L 290 90 L 680 90 L 680 305" />
+              
+              <!-- 10. Warmwasserspeicher -> Hydroeinheit Rücklauf (Blue) -->
+              <path id="pipe-ww-hydro-ruecklauf" class="pipe-line pipe-ruecklauf" d="M 660 405 L 660 445 L 300 445 L 300 274" />
+              
+              <!-- 11. MAG Abzweig (Blue) -->
+              <path id="pipe-mag-abzweig" class="pipe-line pipe-ruecklauf" d="M 390 390 L 390 274" />
+
+              <!-- 12. Trinkwasser Kaltwasser-Zulauf (Cyan) -->
+              <path id="pipe-kaltwasser" class="pipe-line pipe-kaltwasser" d="M 770 430 L 850 430 L 850 260 L 750 260 L 750 405 L 712 405" />
+
+              <!-- 13. Trinkwasser Warmwasser-Netz (Orange) -->
+              <path id="pipe-warmwasser" class="pipe-line pipe-warmwasser" d="M 700 305 L 700 210 L 770 210" />
+            </svg>
+
+            <!-- Interactive sockets (Dashed Target Placements) -->
+            
+            <!-- Frostschutz Vorlauf (Outside) -->
+            <div class="schematic-socket" id="socket-frost-vl" style="left: 155px; top: 205px;" data-label="Frostschutz VL"></div>
+            
+            <!-- Frostschutz Rücklauf (Outside) -->
+            <div class="schematic-socket" id="socket-frost-rl" style="left: 155px; top: 285px;" data-label="Frostschutz RL"></div>
+
+            <!-- Hydroeinheit -->
+            <div class="schematic-socket" id="socket-hydro" style="left: 250px; top: 215px;" data-label="Hydroeinheit"></div>
+
+            <!-- Sicherheitsgruppe (Vorlauf Innen nach Hydro) -->
+            <div class="schematic-socket" id="socket-safety" style="left: 360px; top: 110px;" data-label="Sicherheitsgruppe"></div>
+
+            <!-- Schlammabscheider (Rücklauf Innen vor Hydro) -->
+            <div class="schematic-socket" id="socket-abscheider" style="left: 305px; top: 361px;" data-label="Schlammabscheider"></div>
+
+
+
+            <!-- Ausdehnungsgefäß (MAG) -->
+            <div class="schematic-socket" id="socket-mag" style="left: 360px; top: 215px;" data-label="MAG"></div>
+
+            <!-- Pufferspeicher (Floor Stand) -->
+            <div class="schematic-socket" id="socket-puffer" style="left: 468px; top: 325px; border-radius: 8px; width: 64px; height: 80px;" data-label="Puffer"></div>
+
+            <!-- Warmwasserspeicher (Floor Stand) -->
+            <div class="schematic-socket" id="socket-ww" style="left: 648px; top: 305px; border-radius: 8px; width: 64px; height: 100px;" data-label="WW-Speicher"></div>
+
+            <!-- Sicherheitsgruppe Kaltwasser (oben) -->
+            <div class="schematic-socket" id="socket-safety-kw" style="left: 770px; top: 231px;" data-label="Trinkwasser Sicherheitsgruppe"></div>
+
+            <!-- Trinkwasser-Ausdehnungsgefäß (MAG) -->
+            <div class="schematic-socket" id="socket-mag-tw" style="left: 721px; top: 310px;" data-label="Trinkwasser MAG"></div>
+
+            <!-- Alarm / Red Screen Flash Overlay -->
+            <div class="room-alarm-overlay" id="alarm-overlay"></div>
+
+            <!-- Havarie / Damage Modal (Hidden by default) -->
+            <div class="damage-modal-overlay" id="damage-modal">
+              <div class="damage-modal-card">
+                <div class="damage-alert-pulse">⚠️</div>
+                <h3 id="damage-title">Totalausfall / Schaden!</h3>
+                <div class="damage-cost-tag" id="damage-cost">Schadenshöhe: 0 €</div>
+                <p class="damage-explanation" id="damage-text">
+                  Hier steht die technische Auswirkung des Fehlers...
+                </p>
+                <button class="btn btn-primary" id="damage-ok-btn">Fehler beheben & neu versuchen</button>
+              </div>
+            </div>
+
+            <!-- Success Overlay -->
+            <div class="game-success-overlay" id="success-overlay">
+              <div class="success-modal-card">
+                <span class="float-icon" style="width: 72px; height: 72px; background-color: var(--primary-light); color: var(--primary); font-size: 2.2rem; margin: 0 auto 15px;">✓</span>
+                <h3>Inbetriebnahme erfolgreich!</h3>
+                <p id="success-message">Alle Komponenten sind fehlerfrei im Schema integriert. Das Heizwasser fließt hocheffizient und die Anlage ist 100% sicher geschützt.</p>
+                <div style="display: flex; gap: 12px; justify-content: center; margin-top: 15px;">
+                  <button class="btn btn-primary" id="success-watch-btn">Fluss beobachten</button>
+                  <button class="btn btn-secondary" id="success-reset-btn">Schema zurücksetzen</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>WärmepumpenTEAM.de</h3>
+        <p>
+          Internes Wissens- und Dokumentationsportal für Mitarbeiter und Partnerbetriebe. Alle dargestellten Schemata entsprechen unseren aktuellen Montagevorgaben.
+        </p>
+      </div>
+      <div class="footer-links">
+        <ul class="footer-list">
+          <h5>Portal-Links</h5>
+          <li><a href="index.html">Schulung & Check</a></li>
+          <li><a href="aufbau.html">Heizstation-Aufbau</a></li>
+          <li><a href="spiel.html">Schulungs-Spiel</a></li>
+          <li><a href="komponenten.html">Komponenten-Lexikon</a></li>
+        </ul>
+        <ul class="footer-list">
+          <h5>Zertifizierungen</h5>
+          <li><a href="https://www.bafa.de" target="_blank" rel="noopener">BAFA Fachunternehmererklärung</a></li>
+          <li><a href="https://www.kfw.de" target="_blank" rel="noopener">KfW Zuschussportal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WärmepumpenTEAM. Interner Bereich.</span>
+      <span>Gemacht mit Leidenschaft für eine fehlerfreie Energiewende.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

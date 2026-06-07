@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mitarbeiter Schulungsportal – Komponenten-Lexikon</title>
+  <meta name="description" content="Fachkatalog der verbauten Wärmepumpen-Komponenten. Internes Nachschlagewerk mit technischen Erklärungen und Bildern.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background decorative blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- Header Section -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+        <span>Wärmepumpen<span class="text-primary">TEAM</span></span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Schulung & Check</a></li>
+          <li><a href="aufbau.html" class="nav-link">Heizstation-Aufbau</a></li>
+          <li><a href="spiel.html" class="nav-link">Schulungs-Spiel</a></li>
+          <li><a href="komponenten.html" class="nav-link active">Komponenten-Lexikon</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Wrap -->
+  <main>
+
+    <!-- SECTION 2: KOMPONENTEN-LEXIKON -->
+    <div id="lexicon-section" class="tab-content active">
+      <section class="section">
+        <div class="section-header">
+          <h2>Das interaktive Komponenten-Lexikon</h2>
+          <p>
+            Um Fehler bei der Installation auf der Baustelle zu vermeiden, musst du jedes Bauteil und seine genaue Funktion kennen. Filter nach Kategorien, nutze die Suche und vergleiche die Bauteile mit den schematischen Funktionsprinzipien.
+          </p>
+        </div>
+
+        <div class="lexicon-layout">
+          <!-- Sidebar filters -->
+          <aside class="lexicon-sidebar">
+            <h4>Kategorien</h4>
+            <button class="lexicon-filter-btn active" data-filter="all">
+              <span>Alle Komponenten</span>
+              <span class="count" id="count-all">0</span>
+            </button>
+            <button class="lexicon-filter-btn" data-filter="hydraulik">
+              <span>Hydraulik & Ventile</span>
+              <span class="count" id="count-hydraulik">0</span>
+            </button>
+            <button class="lexicon-filter-btn" data-filter="sicherheit">
+              <span>Sicherheit & Ausdehnung</span>
+              <span class="count" id="count-sicherheit">0</span>
+            </button>
+            <button class="lexicon-filter-btn" data-filter="speicher">
+              <span>Speicher & Regelung</span>
+              <span class="count" id="count-speicher">0</span>
+            </button>
+            <button class="lexicon-filter-btn" data-filter="anschluss">
+              <span>Fittinge & Dämmung</span>
+              <span class="count" id="count-anschluss">0</span>
+            </button>
+            <button class="lexicon-filter-btn" data-filter="diagnose">
+              <span>Fehlersuche & Praxis</span>
+              <span class="count" id="count-diagnose">0</span>
+            </button>
+          </aside>
+
+          <!-- Main catalog section -->
+          <div class="lexicon-main">
+            <!-- Search field -->
+            <div class="lexicon-search-bar">
+              <svg class="lexicon-search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <input type="text" class="lexicon-search-input" id="search-input" placeholder="Nach Bauteil suchen (z.B. Abscheider, Ventil, Fühler)...">
+            </div>
+
+            <!-- Components Container -->
+            <div class="component-deck" id="components-deck-container">
+              <!-- Dynamically populated via app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>WärmepumpenTEAM.de</h3>
+        <p>
+          Internes Wissens- und Dokumentationsportal für Mitarbeiter und Partnerbetriebe. Alle dargestellten Schemata entsprechen unseren aktuellen Montagevorgaben.
+        </p>
+      </div>
+      <div class="footer-links">
+        <ul class="footer-list">
+          <h5>Portal-Links</h5>
+          <li><a href="index.html">Schulung & Check</a></li>
+          <li><a href="aufbau.html">Heizstation-Aufbau</a></li>
+          <li><a href="spiel.html">Schulungs-Spiel</a></li>
+          <li><a href="komponenten.html">Komponenten-Lexikon</a></li>
+        </ul>
+        <ul class="footer-list">
+          <h5>Zertifizierungen</h5>
+          <li><a href="https://www.bafa.de" target="_blank" rel="noopener">BAFA Fachunternehmererklärung</a></li>
+          <li><a href="https://www.kfw.de" target="_blank" rel="noopener">KfW Zuschussportal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 WärmepumpenTEAM. Interner Bereich.</span>
+      <span>Gemacht mit Leidenschaft für eine fehlerfreie Energiewende.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
